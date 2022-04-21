@@ -97,14 +97,14 @@
                         }
                         if (!response.success) {
                             Swal.fire({
-                                title: 'Erro ao excluir o tipo',
-                                text: response.message,
+                                title: 'Erro ao excluir o contato',
+                                text: 'contate o suporte!',
                                 type: 'error',
                             });
                         }
                     }).fail(error => {
                         Swal.fire({
-                            title: 'Erro ao excluir o tipo',
+                            title: 'Erro ao excluir o contato',
                             text: 'contate o suporte!',
                             type: 'error',
                         });

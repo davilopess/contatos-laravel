@@ -38,7 +38,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:5',
+            'email' => 'required|email:rfc,dns',
+            'contact' => 'required|min:9'
         ]);
 
         $contact = Contact::create($request->all());
@@ -66,9 +68,11 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+
+        return view('contact.edit', compact('contact'));
     }
 
     /**
@@ -78,9 +82,20 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::find($id);
+
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->contact = $request->contact;
+
+        $contact->save();
+
+        return redirect()->route('contact.index')->with([
+            'type' => 'sucess',
+            'message' => 'Atualizado com sucesso'
+        ]);
     }
 
     /**
@@ -89,8 +104,14 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+
+        return response()->json([
+            'message' => 'O item foi excluído com sucesso!',
+            'success' => true
+        ]);
     }
 }
