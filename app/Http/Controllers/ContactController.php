@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contato;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class ContatoController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ContatoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contato  $contato
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contato $contato)
+    public function show(Contact $contact)
     {
         //
     }
@@ -52,10 +52,10 @@ class ContatoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contato  $contato
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contato $contato)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -64,10 +64,10 @@ class ContatoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contato  $contato
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contato $contato)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -75,10 +75,10 @@ class ContatoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contato  $contato
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contato $contato)
+    public function destroy(Contact $contact)
     {
         //
     }
