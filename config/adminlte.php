@@ -242,9 +242,9 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Contatos',
+            'url'  => 'contato',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text'        => 'pages',
