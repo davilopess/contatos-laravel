@@ -18,7 +18,7 @@
     <div class="col-12">
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Cadastrar contact</h3>
+                <h3 class="card-title">Cadastrar contato</h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('contact.store') }}">
