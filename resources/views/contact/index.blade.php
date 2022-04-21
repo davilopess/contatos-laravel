@@ -3,10 +3,22 @@
 @section('title', 'Arcondicionado')
 
 @section('content_header')
+<div class="hidden fixed top-0 right-0 px-6 py-4 sm:block" style="text-align: end;">
+                    @auth
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+
 <h1>Listar contatos</h1>
 @stop
 
 @section('content')
+@auth
 <div class="row">
     <div class="col-12 mb-3">
         <a class="btn btn-info" href="{{ route('contact.create')}}">
@@ -14,6 +26,7 @@
         </a>
     </div>
 </div>
+@endauth
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -27,7 +40,9 @@
                             <th>Nome</th>
                             <th>Email</th>
                             <th>Contato</th>
+                            @auth
                             <th width="20%">Ações</th>
+                            @endauth
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +51,7 @@
                             <td>{{($contact->name)}}</td>
                             <td>{{($contact->email)}}</td>
                             <td>{{($contact->contact)}}</td>
+                            @auth
                             <td class="text-center">
                                 <a class="btn btn-warning" href="{{ route('contact.edit', $contact->id )}}">
                                     <span class="fas fa-edit"></span>
@@ -44,6 +60,7 @@
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </td>
+                            @endauth
                         </tr>
                         @endforeach
                     </tbody>

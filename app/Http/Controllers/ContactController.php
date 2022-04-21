@@ -39,7 +39,7 @@ class ContactController extends Controller
     {
         $request->validate([
             'name' => 'required|min:5',
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required|email:rfc,dns|unique:contacts,email',
             'contact' => 'required|min:9'
         ]);
 
